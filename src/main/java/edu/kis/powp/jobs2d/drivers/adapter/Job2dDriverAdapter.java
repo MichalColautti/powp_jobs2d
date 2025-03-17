@@ -10,9 +10,11 @@ import edu.kis.powp.jobs2d.Job2dDriver;
  */
 public class Job2dDriverAdapter extends DrawPanelController implements Job2dDriver {
 	private int startX = 0, startY = 0;
+	private final DrawPanelController drawPanelController;
 
-	public Job2dDriverAdapter() {
+	public Job2dDriverAdapter(DrawPanelController drawPanelController) {
 		super();
+		this.drawPanelController = drawPanelController;
 	}
 
 	@Override
@@ -28,7 +30,7 @@ public class Job2dDriverAdapter extends DrawPanelController implements Job2dDriv
 		line.setEndCoordinates(x, y);
 		this.setPosition(x,y);
 
-		edu.kis.powp.jobs2d.features.DrawerFeature.getDrawerController().drawLine(line);
+		drawPanelController.drawLine(line);
 	}
 
 	@Override
