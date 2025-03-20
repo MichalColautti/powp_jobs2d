@@ -3,6 +3,7 @@ package edu.kis.powp.jobs2d.events;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import edu.kis.powp.command.ComplexCommandFactory;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapter.AbstractDriverAdapter;
 import edu.kis.powp.jobs2d.magicpresets.FiguresJane;
@@ -27,6 +28,14 @@ public class SelectTestFigureOptionListener implements ActionListener {
 		else if(e.getActionCommand().equals("Figure Jane")) {
 			AbstractDriverAdapter driver = new AbstractDriverAdapter(driverManager.getCurrentDriver());
 			FiguresJane.figureScript(driver);
+		}
+		else if(e.getActionCommand().equals("Rectangle")) {
+			AbstractDriverAdapter driver = new AbstractDriverAdapter(driverManager.getCurrentDriver());
+			ComplexCommandFactory.rectangle(driver).execute();
+		}
+		else if(e.getActionCommand().equals("Triangle")) {
+			AbstractDriverAdapter driver = new AbstractDriverAdapter(driverManager.getCurrentDriver());
+			ComplexCommandFactory.triangle(driver).execute();
 		}
 	}
 }
